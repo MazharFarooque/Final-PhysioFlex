@@ -1,0 +1,480 @@
+/**
+ * PhysioFlex — Homepage Redesign
+ * ---------------------------------------------------------------
+ * Styles the rebuilt homepage sections only (hero, about, services,
+ * why-us, final CTA). Namespaced with a "pf-" prefix so nothing here
+ * collides with main.css's existing component classes used on other
+ * pages (.service-item, .specialty-card, .floating-card, etc. keep
+ * behaving exactly as before wherever they're still used elsewhere).
+ * Loaded after theme-refresh.css, so it inherits the same color and
+ * spacing tokens (--accent-color, --heading-color, --radius-*, ...).
+ * ---------------------------------------------------------------
+ */
+
+.pf-section {
+  position: relative;
+}
+
+.pf-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brand-sage);
+  margin-bottom: 14px;
+}
+
+.pf-eyebrow .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  display: inline-block;
+}
+
+.pf-section-head {
+  max-width: 620px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+.pf-section-head h2 {
+  font-size: clamp(1.7rem, 3.2vw, 2.15rem);
+  margin-bottom: 12px;
+}
+
+.pf-section-head p {
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+}
+
+/* ---------------- Hero ---------------- */
+.pf-hero {
+  padding-top: clamp(120px, 14vw, 150px);
+  padding-bottom: clamp(48px, 6vw, 80px);
+  background: linear-gradient(150deg, var(--surface-color) 0%, var(--brand-sage-tint) 120%);
+  overflow: hidden;
+}
+
+.pf-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.pf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--brand-line);
+  color: var(--heading-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+}
+
+.pf-badge i {
+  color: var(--accent-color);
+}
+
+.pf-hero h1 {
+  font-size: clamp(2.1rem, 4.4vw, 3.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  max-width: 14ch;
+}
+
+.pf-hero-lede {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  max-width: 46ch;
+  margin-bottom: 30px;
+}
+
+.pf-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.pf-stats-row {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 28px;
+}
+
+.pf-stats-row .pf-stat h2 {
+  font-family: var(--heading-font);
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  color: var(--accent-color);
+  margin: 0;
+  line-height: 1;
+}
+
+.pf-stats-row .pf-stat span {
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  font-weight: 500;
+}
+
+.pf-call-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  border: 1px solid var(--brand-line);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+}
+
+.pf-call-strip .pf-call-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--brand-sage-tint);
+  color: var(--brand-sage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  font-size: 1.1rem;
+}
+
+.pf-call-strip small {
+  display: block;
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.pf-call-strip strong {
+  font-size: 0.95rem;
+  color: var(--heading-color);
+}
+
+@media (max-width: 991px) {
+  .pf-hero { text-align: left; }
+  .pf-stats-row { gap: 28px; }
+}
+
+/* Hero visual: image + floating credential/rating cards */
+.pf-hero-visual {
+  position: relative;
+  margin-top: 8px;
+}
+
+.pf-hero-visual .pf-main-image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.pf-hero-visual .pf-main-image img {
+  width: 100%;
+  aspect-ratio: 4/3.6;
+  object-fit: cover;
+}
+
+.pf-float-card {
+  position: absolute;
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card-hover);
+  padding: 16px 18px;
+  max-width: 220px;
+}
+
+.pf-float-appt {
+  left: -18px;
+  bottom: -24px;
+}
+
+.pf-float-rating {
+  right: -14px;
+  top: -20px;
+  max-width: 150px;
+  text-align: center;
+}
+
+.pf-float-card h6 {
+  font-size: 0.85rem;
+  margin: 0 0 2px;
+}
+
+.pf-float-card p, .pf-float-card small {
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin: 0;
+}
+
+.pf-float-rating .pf-stars {
+  color: #F5A524;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.pf-float-rating h6 {
+  font-size: 1.1rem;
+  color: var(--heading-color);
+}
+
+@media (max-width: 767px) {
+  .pf-float-card { padding: 12px 14px; max-width: 170px; }
+  .pf-float-appt { left: 8px; bottom: -18px; }
+  .pf-float-rating { right: 8px; top: -14px; max-width: 120px; }
+}
+
+@media (max-width: 480px) {
+  .pf-float-appt, .pf-float-rating { position: static; margin-top: 12px; max-width: none; display: inline-block; }
+  .pf-hero-visual { display: flex; flex-direction: column; }
+}
+
+/* ---------------- About ---------------- */
+.pf-about {
+  padding: clamp(56px, 8vw, 96px) 0;
+}
+
+.pf-about h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  max-width: 16ch;
+  margin-bottom: 16px;
+}
+
+.pf-about p {
+  color: color-mix(in srgb, var(--default-color), transparent 12%);
+  max-width: 48ch;
+  margin-bottom: 24px;
+}
+
+.pf-about-visual {
+  position: relative;
+}
+
+.pf-about-visual img {
+  border-radius: var(--radius-md);
+  width: 100%;
+  aspect-ratio: 5/4;
+  object-fit: cover;
+  box-shadow: var(--shadow-card);
+}
+
+.pf-badge-pill {
+  position: absolute;
+  bottom: -18px;
+  left: 18px;
+  background: var(--heading-color);
+  color: #fff;
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.pf-badge-pill .years {
+  font-family: var(--heading-font);
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+}
+
+.pf-badge-pill .text {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+  .pf-badge-pill { position: static; margin-top: 14px; display: inline-block; }
+}
+
+/* ---------------- Services grid ---------------- */
+.pf-services {
+  background: var(--brand-sage-tint);
+}
+
+.pf-service-card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.pf-service-card .pf-service-img {
+  aspect-ratio: 16/11;
+  overflow: hidden;
+}
+
+.pf-service-card .pf-service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.pf-service-card:hover .pf-service-img img {
+  transform: scale(1.05);
+}
+
+.pf-service-card .pf-service-body {
+  padding: 20px 22px 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-service-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.pf-service-card p {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.pf-service-card a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------------- Why us ---------------- */
+.pf-why {
+  padding: clamp(56px, 8vw, 96px) 0;
+}
+
+.pf-why-card {
+  text-align: left;
+  padding: 8px 6px;
+}
+
+.pf-why-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--brand-sage-tint);
+  color: var(--brand-sage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+}
+
+.pf-why-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.pf-why-card p {
+  font-size: 0.92rem;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+}
+
+/* ---------------- Final CTA band ---------------- */
+.pf-final-cta {
+  background: var(--heading-color);
+  color: #fff;
+  border-radius: var(--radius-md);
+  margin: 0 auto clamp(56px, 8vw, 90px);
+  padding: clamp(36px, 5vw, 56px);
+  max-width: 1180px;
+}
+
+.pf-final-cta h2 {
+  color: #fff;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-bottom: 12px;
+}
+
+.pf-final-cta p {
+  color: #C9D9D4;
+  max-width: 52ch;
+  margin-bottom: 0;
+}
+
+.pf-final-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.pf-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.pf-cta-btn.primary {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.pf-cta-btn.primary:hover {
+  background: color-mix(in srgb, var(--accent-color), black 10%);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.pf-cta-btn.ghost {
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  color: #fff;
+}
+
+.pf-cta-btn.ghost:hover {
+  background: rgba(255,255,255,0.16);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.pf-final-cta-trust {
+  margin-top: 22px;
+  font-size: 0.82rem;
+  color: #9FB8B0;
+}
+
+@media (max-width: 767px) {
+  .pf-final-cta { border-radius: var(--radius-md); padding: 30px 22px; }
+}
+
+/* Homepage art direction */
+.pf-hero { background: linear-gradient(135deg, #111 0%, #111 61%, #f6c400 61%, #f6c400 100%); }
+.pf-badge { background: transparent; border-color: rgba(255,255,255,.32); color: #fff; }
+.pf-hero h1 { color: #fff; }
+.pf-hero-lede { color: #dfdfda; }
+.pf-stats-row .pf-stat span { color: #d4d4cf; }
+.pf-call-strip { border: 0; border-radius: 0; }
+.pf-hero-visual .pf-main-image { border-radius: 0; }
+.pf-float-card { border-radius: 0; border-left: 5px solid var(--accent-color); }
+.pf-services { background: #efefeb; }
+.pf-service-card { border-radius: 0; border: 1px solid #dcdcd7; }
+.pf-service-card h3::after { content: ""; display: block; width: 30px; height: 3px; background: var(--accent-color); margin-top: 12px; }
+.pf-why-icon { width: 56px; height: 56px; border-radius: 0; background: var(--accent-color); color: #111; }
+.pf-final-cta { background: #111; border-radius: 0; border-top: 7px solid var(--accent-color); }
+.pf-cta-btn.primary { color: #111; }
