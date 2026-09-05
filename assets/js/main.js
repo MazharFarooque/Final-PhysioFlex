@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       try {
 
-    const response = await fetch("http://localhost:8080/api/appointments/book", {
+    const response = await fetch("https://api.physioflex.in/api/appointments/book", {
 
         method: "POST",
 

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const errorMessage = document.getElementById("error-message");
     const successMessage = document.getElementById("success-message");
 
-    const API_URL = "http://localhost:8080/api/contact/save";
+    const API_URL = "https://api.physioflex.in/api/contact/save";
 
     form.addEventListener("submit", async function (e) {
 
